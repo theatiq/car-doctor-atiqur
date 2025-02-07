@@ -5,9 +5,7 @@ import Link from "next/link";
 import React from "react";
 
 export default function Navbar() {
-  const status = "not-authenticated";
-  // const { data: session, status } = useSession();
-  // console.log(session);
+  const { data: session, status } = useSession();
   const navMenu = () => {
     return (
       <>
@@ -80,7 +78,9 @@ export default function Navbar() {
                   alt="user-logo"
                 />
               </li>
-              <li onClick={() => signOut()}>Log Out</li>
+              <button className="btn btn-outline">
+                <li onClick={() => signOut()}>Log Out</li>
+              </button>
             </>
           ) : (
             <>
