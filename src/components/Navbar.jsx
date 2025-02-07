@@ -78,9 +78,9 @@ export default function Navbar() {
                   alt="user-logo"
                 />
               </li>
-              <button className="btn btn-outline">
+              <p className="btn btn-outline">
                 <li onClick={() => signOut()}>Log Out</li>
-              </button>
+              </p>
             </>
           ) : (
             <>
