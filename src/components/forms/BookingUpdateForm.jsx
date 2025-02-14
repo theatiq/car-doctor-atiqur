@@ -1,11 +1,13 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
 const BookingUpdateForm = ({ data }) => {
   const { data: session } = useSession();
+  const router = useRouter()
   console.log(session);
 
   const handleBookService = async (e) => {
@@ -36,11 +38,12 @@ const BookingUpdateForm = ({ data }) => {
     };
 
     console.log(bookingPayload);
-    const res = await fetch("http://localhost:3000/api/service", {
-      method: "POST",
+    const res = await fetch(`http://localhost:3000/api/my-bookings/${data._id}`, {
+      method: "PATCH",
       body: JSON.stringify(bookingPayload),
     });
     const postedResponse = await res.json();
+    router.push("/my-bookings")
     console.log("POSTED DATA", postedResponse);
   };
 
