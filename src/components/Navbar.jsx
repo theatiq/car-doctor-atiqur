@@ -70,14 +70,14 @@ export default function Navbar() {
         <ul className="menu menu-horizontal px-1">
           {status == "authenticated" ? (
             <>
-              <li>
+              {/* <li>
                 <Image
                   src={session?.user?.image}
                   width={50}
                   height={50}
                   alt="user-logo"
                 />
-              </li>
+              </li> */}
               <p className="btn btn-outline">
                 <li onClick={() => signOut()}>Log Out</li>
               </p>
